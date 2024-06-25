@@ -1,88 +1,149 @@
-<?php
-    session_start();
-    include 'inc/connection.php';
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Library Management System</title>
-    <link rel="stylesheet" href="inc/css/bootstrap.min.css">
-    <link rel="stylesheet" href="inc/css/fontawesome-all.min.css">
-    <link rel="stylesheet" href="inc/css/pro1.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600" rel="stylesheet">
-    <style>
-        .login{
-            background-image: url(inc/img/3.jpg);
-            margin-bottom: 30px;
-            padding: 50px;
-            padding-bottom: 70px;
-        }
-        .reg-header h2{
-            color: #DDDDDD;
-            z-index: 999999;
-        }
-        .login-body h4{
-            margin-bottom: 20px;
-        }
-    </style>
+	<meta charset="UTF-8">
+	<title>Library Management System</title>
+	<link rel="icon" type="image/png" href="dist/img/favicon.ico">
+	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="dist/css/fontawesome-all.min.css">
+	<link rel="stylesheet" href="dist/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="dist/css/owl.theme.default.min.css">
+	<link rel="stylesheet" href="dist/css/animate.css">
+	<link rel="stylesheet" href="dist/css/main.css">
 </head>
 <body>
-    <div class="login registration">
-        <div class="wrapper">
-            <div class="reg-header text-center">
-                <h2>Library management system</h2>
-                <div class="gap-30"></div>
-                <div class="gap-30"></div>
-            </div>
-            <div class="gap-30"></div>
-            <div class="login-content">
-                <div class="login-body">
-                    <h4>Librarian Login Form</h4>
-                    <form action="" method="post">
-                        <div class="mb-20">
-                            <input type="text" name="username" class="form-control" placeholder="Username" required=""/>
-                        </div>
-                        <div class="mb-20">
-                            <input type="password" name="password" class="form-control" placeholder="Password" required=""/>
-                        </div>
-                        <div class="mb-20">
-                            <input class="btn btn-info submit" type="submit" name="login" value="Login">
-                            
-                        </div>
-                    </form>
-                </div>
-                <?php
-                if (isset($_POST["login"])) {
-                    $count=0;
-                    $res= mysqli_query($link, "select * from lib_registration where username='$_POST[username]' && password= '$_POST[password]' ");
-                    $count = mysqli_num_rows($res);
-                    if ($count==0) {
-                        ?>
-                        <div class="alert alert-warning">
-                            <strong style="color:#333">Invalid!</strong> <span style="color: red;font-weight: bold; ">Username Or Password.</span>
-                        </div>
-                    <?php
-                    }
-                    else{
-                    $_SESSION["username"] = $_POST["username"];
-                    ?>
-                        <script type="text/javascript">
-                            window.location="dashboard.php";
-                        </script>
-                        <?php
-                    }
-                }
-                ?>
-            </div>
-        </div>
-    </div>
-    <div class="footer text-center">
-        <p>&copy; All rights reserved utter pompously</p>
-    </div>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col-3">
+					<div class="logo">
+						<img src="dist/img/1.png" alt="logo">
+					</div>
+				</div>
+				<div class="col-9">
+					<div class="header-right">
+						<ul>
+							<li><a href=""><i class="fab fa-facebook-f"></i></a></li>
+							<li><a href=""><i class="fab fa-twitter"></i></a></li>
+							<li><a href=""><i class="fab fa-linkedin"></i></a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Login</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="student/login.php">Student Login</a></li>
+                                    <li><a href="teacher/login.php">Teacher Login</a></li>
+                                </ul>
+                            </li>
+							<li><a href="contactus.php">Contact Us</a></li>
+						</ul>		
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--Start slider-->
+	<div class="slider">
+		<div class="slide-carousel owl-carousel">
+			<div class="item" style="background-image:url(dist/img/3.jpg);">
+				<div class="overlay"></div>
+				<div class="text">
+					<div class="this-item">
+						<h2>welcome to our library</h2>
+					</div>
+					<div class="this-item">
+						<h3>we stand behind your success</h3>
+					</div>
+					<div class="this-item">
+                        <p><a href="student/registration.php">student registration</a></p>
+                        <p><a href="teacher/registration.php">teacher registration</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="item" style="background-image:url(dist/img/2.jpg);">
+				<div class="overlay"></div>
+				<div class="text">
+					<div class="this-item">
+						<h2>welcome to our library</h2>
+					</div>
+					<div class="this-item">
+						<h3>we stand behind your success</h3>
+					</div>
+					<div class="this-item">
+                        <p><a href="student/registration.php">student registration</a></p>
+                        <p><a href="teacher/registration.php">teacher registration</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="item" style="background-image:url(dist/img/1.jpg);">
+				<div class="overlay"></div>
+				<div class="text">
+					<div class="this-item">
+						<h2>welcome to our library</h2>
+					</div>
+					<div class="this-item">
+						<h3>we stand behind your success</h3>
+					</div>
+					<div class="this-item">
+						<p><a href="student/registration.php">student registration</a></p>
+						<p><a href="teacher/registration.php">teacher registration</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="item" style="background-image:url(dist/img/4.jpg);">
+				<div class="overlay"></div>
+				<div class="text">
+					<div class="this-item">
+						<h2>welcome to our library</h2>
+					</div>
+					<div class="this-item">
+						<h3>We stand behind your success</h3>
+					</div>
+					<div class="this-item">
+                        <p><a href="student/registration.php">student registration</a></p>
+                        <p><a href="teacher/registration.php">teacher registration</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="item" style="background-image:url(dist/img/5.jpg);">
+				<div class="overlay"></div>
+				<div class="text">
+					<div class="this-item">
+						<h2>welcome to our library</h2>
+					</div>
+					<div class="this-item">
+						<h3>We stand behind your success</h3>
+					</div>
+					<div class="this-item">
+                        <p><a href="student/registration.php">student registration</a></p>
+                        <p><a href="teacher/registration.php">teacher registration</a></p>
+					</div>
+				</div>
+			</div>
+			<div class="item" style="background-image:url(dist/img/6.jpg);">
+				<div class="overlay"></div>
+				<div class="text">
+					<div class="this-item">
+						<h2>welcome to our library</h2>
+					</div>
+					<div class="this-item">
+						<h3>We stand behind your success</h3>
+					</div>
+					<div class="this-item">
+                        <p><a href="student/registration.php">student registration</a></p>
+                        <p><a href="teacher/registration.php">teacher registration</a></p>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
 
-<script src="inc/js/jquery-2.2.4.min.js"></script>
-<script src="inc/js/bootstrap.min.js"></script>
-<script src="inc/js/custom.js"></script>
+	<div class="footer text-center">
+		<p>&copy; All rights reserved utter pompously</p>
+	</div>			
+
+	<script src="dist/js/jquery-2.2.4.min.js"></script>
+	<script src="dist/js/bootstrap.min.js"></script>
+	<script src="dist/js/fontawesome.min.js"></script>
+	<script src="dist/js/owl.carousel.min.js"></script>
+	<script src="dist/js/owl.animate.js"></script>
+	<script src="dist/js/custom.js"></script>
 </body>
 </html>
